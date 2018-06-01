@@ -25,10 +25,7 @@ use Bitrix\Main\Page\Asset;
 <?$APPLICATION->ShowPanel();?>
 <body>
 <div class="wrapper">
-    <!-- Page Header -->
-
 <header id="masthead">
-
     <nav class="navbar navbar-static-top">
         <div class="navbar-inner">
             <div class="container-fluid">
@@ -44,19 +41,31 @@ use Bitrix\Main\Page\Asset;
                 ),
                     false
                 );?>
-                <div class="nav-collapse collapse">
-                    <ul class="nav pull-right">
-
-                        </li>
-                    </ul>
-                </div>
+                <?$APPLICATION->IncludeComponent(
+	"bitrix:menu", 
+	"topmenu", 
+	array(
+		"ALLOW_MULTI_SELECT" => "N",
+		"CHILD_MENU_TYPE" => "left",
+		"DELAY" => "N",
+		"MAX_LEVEL" => "3",
+		"MENU_CACHE_GET_VARS" => array(
+		),
+		"MENU_CACHE_TIME" => "3600",
+		"MENU_CACHE_TYPE" => "N",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"ROOT_MENU_TYPE" => "top",
+		"USE_EXT" => "N",
+		"COMPONENT_TEMPLATE" => "topmenu"
+	),
+	false
+);?>
             </div>
         </div>
     </nav>
 </header>
-
     <div id="content" role="main">
-        <!-- Promo Section -->
+        <?if(IS_INDEX):?>
         <section class="section section-alt">
             <div class="row-fluid">
                 <div class="flexslider" data-flex-animation="slide" data-flex-controlsalign="center" data-flex-controlsposition="inside" data-flex-directions="hide" data-flex-speed="7000" id="intro">
@@ -113,3 +122,4 @@ use Bitrix\Main\Page\Asset;
                 </div>
             </div>
         </section>
+        <?endif;?>

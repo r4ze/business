@@ -25,7 +25,7 @@ $this->setFrameMode(true);
                 <div class="round-box box-small">
                     <?$renderImage =
                         CFile::ResizeImageGet($arItem["PREVIEW_PICTURE"],
-                            Array("width" => "208", "height" => "138"),
+                            Array("width" => "78", "height" => "78"),
                             BX_RESIZE_IMAGE_EXACT,
                             false);
                     ?>

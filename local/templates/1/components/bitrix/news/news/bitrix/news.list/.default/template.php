@@ -17,16 +17,7 @@ $this->setFrameMode(true);
 	$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
 	$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 	?>
-    <section class="section section-padded">
-        <div class="container-fluid">
-            <div class="section-header">
-                <h1>
-                    Новости
-                </h1>
-            </div>
 
-            <div class="row-fluid">
-                <ul class="thumbnails portfolio">
                     <li class="span3 filter-forest" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
                         <figure class="round-box box-huge no-rounded">
                             <?$renderImage =
@@ -35,7 +26,7 @@ $this->setFrameMode(true);
                                     BX_RESIZE_IMAGE_EXACT,
                                     false);
                             ?>
-                            <a class="box-inner fancybox" href="<?=$renderImage["src"]?>" rel="group" title="Thats a nice landscape">
+                            <a class="box-inner fancybox" href="<?=$renderImage["src"]?>" rel="group" title="<?=$arItem["PROPERTIES"]["TITLE"]["VALUE"]?>">
                                 <img alt="some image" class="img-circle" src="<?=$renderImage["src"]?>">
                                 <i class="plus-icon"></i>
                             </a>
@@ -51,10 +42,7 @@ $this->setFrameMode(true);
                             </figcaption>
                         </figure>
                     </li>
-                </ul>
-            </div>
-        </div>
-    </section>
+
 
 
 <?endforeach;?>
